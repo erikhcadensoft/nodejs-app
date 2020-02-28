@@ -19,7 +19,7 @@ steps:
 - script: docker push $(imageName)
 - task: CopyFiles@2
   inputs:
-    SourceFolder: $(Build.SourcesDirectory)
+    SourceFolder: $(Agent.SourcesDirectory)
     Contents: '**/nodeapp-deployment.yaml'
     TargetFolder: $(Build.ArtifactStagingDirectory)
     OverWrite: true
