@@ -19,7 +19,7 @@ steps:
 - script: docker push $(imageName)
 - task: CopyFiles@2
   inputs:
-    Contents: '_buildOutput**'
+    Contents: '_buildOutput/**'
     TargetFolder: $(Build.ArtifactStagingDirectory)
     OverWrite: true
 - task: PublishBuildArtifacts@1
