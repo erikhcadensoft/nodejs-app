@@ -2,7 +2,7 @@ const express = require('express');
 const app = express();
 
 app.use('*', (req,res, next) => {
-    res.send('<h1>Hello from node app!</h1><h2>testing a pipeline push sucka!</h2><h2>testing another update!</h2>');
+    res.send('<h1>Hello from node app!</h1><h2>why arent new images pulled?</h2>');
 });
 
 app.listen(4000, () => {
