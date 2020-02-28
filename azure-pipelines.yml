@@ -19,12 +19,12 @@ steps:
 - script: docker push $(imageName)
 - task: CopyFiles@2
   inputs:
-    sourceFolder: $(Build.SourcesDirectory)
-    contents: '**/nodeapp-deployment.yaml'
-    targetFolder: $(Build.ArtifactStagingDirectory)
-    overWrite: true
+    SourceFolder: $(Build.SourcesDirectory)
+    Contents: '**/nodeapp-deployment.yaml'
+    TargetFolder: $(Build.ArtifactStagingDirectory)
+    OverWrite: true
 - task: PublishBuildArtifacts@1
   inputs:
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-    artifactName: 'drop'
+    ArtifactName: 'drop'
   displayName: 'docker build'
