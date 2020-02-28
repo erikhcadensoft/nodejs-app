@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
         - name: nodeapp-container
-          image: erikh111/nodejs-app
+          image: erikh111/nodejs-app:latest
           imagePullPolicy: Always
           ports:
             - containerPort: 4000
