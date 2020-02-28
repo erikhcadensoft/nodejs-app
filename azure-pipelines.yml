@@ -25,6 +25,6 @@ steps:
     overWrite: true
 - task: PublishBuildArtifacts@1
   inputs:
-    pathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
     artifactName: 'drop'
   displayName: 'docker build'
