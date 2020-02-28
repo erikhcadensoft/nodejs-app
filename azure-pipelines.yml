@@ -20,7 +20,7 @@ steps:
 - task: CopyFiles@2
   inputs:
     SourceFolder: $(Build.SourcesDirectory)
-    Contents: _buildOutput/**
+    Contents: '**\nodeapp-deployment.yaml'
     TargetFolder: $(Build.ArtifactStagingDirectory)
     OverWrite: true
 - task: PublishBuildArtifacts@1

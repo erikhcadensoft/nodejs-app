@@ -1,0 +1,42 @@
+---
+kind: Service
+apiVersion: v1
+metadata: 
+  name: nodeapp-service
+  labels:
+    run: nodejs-app
+spec:
+  selector:
+    run: nodejs-app
+  ports:
+    - # port accessible inside cluster
+      port: 8080
+      # port to forward inside the pod
+      targetPort: 4000
+      # port accessible outside cluster
+      nodePort: 30004
+  type: LoadBalancer
+
+---
+kind: Deployment
+apiVersion: apps/v1
+metadata: 
+  name: nodeapp-service
+  labels:
+    app: nodejs-app
+spec:
+  selector:
+    matchLabels:
+      run: nodejs-app
+  replicas: 10
+  template:
+    metadata:
+      labels:
+        run: nodejs-app
+    spec:
+      containers:
+        - name: nodeapp-container
+          image: erikh111/nodejs-app
+          ports:
+            - containerPort: 4000
+
