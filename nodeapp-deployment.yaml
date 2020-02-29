@@ -10,7 +10,7 @@ spec:
     run: nodejs-app
   ports:
     - # port accessible inside cluster
-      port: 8080
+      port: 80
       # port to forward inside the pod
       targetPort: 4000
       # port accessible outside cluster
@@ -36,7 +36,7 @@ spec:
     spec:
       containers:
         - name: nodeapp-container
-          image: erikh111/nodejs-app:20200228.25
+          image: erikh111/nodejs-app:20200228.26
           imagePullPolicy: Always
           ports:
             - containerPort: 4000
