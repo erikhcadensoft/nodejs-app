@@ -14,9 +14,9 @@ variables:
   dockerId: 'erikh111'
 
 steps:
-- script: docker build -f Dockerfile -t $(imageName) .
+- script: docker build -f Dockerfile -t -t docker.pkg.github.com/$(Build.Repository.ID)/octocat-generator:$(Build.BuildNumber) .
 - script: docker login -u $(dockerId) -p $(pswd)
-- script: docker push $(imageName)
+- script: docker push docker.pkg.github.com/$(Build.Repository.ID)/octocat-generator:$(Build.BuildNumber)
 - task: CopyFiles@2
   inputs:
     SourceFolder: $(Build.SourcesDirectory)
