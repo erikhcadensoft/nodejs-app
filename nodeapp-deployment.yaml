@@ -2,6 +2,8 @@
 kind: Service
 apiVersion: v1
 metadata: 
+  # minikube service nodeapp-service --url
+  # kubectl get deployment nodeapp-service -o yaml > nodeapp-service_result.yaml
   name: nodeapp-service
   labels:
     run: nodejs-app
@@ -28,7 +30,7 @@ spec:
   selector:
     matchLabels:
       run: nodejs-app
-  replicas: 10
+  replicas: 3
   template:
     metadata:
       labels:
@@ -36,7 +38,8 @@ spec:
     spec:
       containers:
         - name: nodeapp-container
-          image: erikh111/nodejs-app:20200228.26
+          image: erikh111/nodejs-app:latest
+          # image: npm/tests:local
           imagePullPolicy: Always
           ports:
             - containerPort: 4000
