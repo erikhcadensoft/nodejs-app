@@ -5,6 +5,7 @@ metadata:
   # minikube service nodeapp-service --url
   # kubectl get deployment nodeapp-service -o yaml > nodeapp-service_result.yaml
   name: nodeapp-service
+  namespace: test
   labels:
     run: nodejs-app
 spec:
@@ -24,6 +25,7 @@ kind: Deployment
 apiVersion: apps/v1
 metadata: 
   name: nodeapp-service
+  namespace: test
   labels:
     app: nodejs-app
 spec:
